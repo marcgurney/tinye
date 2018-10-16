@@ -7,9 +7,9 @@ class Home extends Component {
       <div className="home">
         <h1>Featured Products!!</h1>
         <ul>
-        	<li>product 1</li>
-        	<li>product 2</li>
-        	<li>product 3</li>
+        	<li><Link to="/product/BACKS0001">Back Scratcher</Link></li>
+        	<li><Link to="/product/COOK0001">Oven Mit</Link></li>
+        	<li><Link to="/product/FLOWR0001">Elegant Vase</Link></li>
         </ul>
       </div>
     );
