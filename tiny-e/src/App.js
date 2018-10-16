@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
+import Nav from './Nav';
+import Home from './Home';
 import { 
     Stitch,
     RemoteMongoClient,
@@ -26,11 +28,17 @@ client.auth.loginWithCredential(new AnonymousCredential()).then(user =>
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          Tiny-E
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+          <Nav />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            {/*<Redirect from="/old-match" to="/will-match" />
+            <Route path="/will-match" component={WillMatch} />
+            <Route component={NoMatch} />*/}
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
