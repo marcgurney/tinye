@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import './App.css';
 import Nav from './Nav';
 import Home from './Home';
-import ProductItem from './ProductItem';
+import ProductView from './ProductView';
 import { 
     Stitch,
     RemoteMongoClient,
@@ -22,11 +22,9 @@ class App extends Component {
         <div className="App">
           <Nav />
           <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/product/:sku" render={routeProps => <ProductItem client={client} db={db} {...routeProps} />} />
-            {/*<Redirect from="/old-match" to="/will-match" />
-            <Route path="/will-match" component={WillMatch} />
-            <Route component={NoMatch} />*/}
+            <Route path="/" exact render={routeProps => <Home client={client} db={db} {...routeProps} />} />
+            <Route path="/product/:sku" render={routeProps => <ProductView client={client} db={db} {...routeProps} />} />
+            {/*<Route component={NoMatch} />*/}
           </Switch>
         </div>
       </Router>
